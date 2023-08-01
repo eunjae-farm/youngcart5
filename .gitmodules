@@ -1,0 +1,3 @@
+[submodule "theme/ejfarm"]
+	path = theme/ejfarm
+	url = https://github.com/eunjae-farm/youngcart5-theme
