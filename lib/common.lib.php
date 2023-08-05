@@ -871,8 +871,10 @@ function is_admin($mb_id)
     if (!$mb_id) return '';
 
     $is_authority = '';
-
+    //gconfig의 mb_id와 gmember(현재 로그인 계정)이 동일한지 확인
+    //최고 관리자는 1명으로 제한되어있다.
     if ($config['cf_admin'] == $mb_id){
+        //alert("admin");
         $is_authority = 'super';
     } else if (isset($group['gr_admin']) && ($group['gr_admin'] == $mb_id)){
         $is_authority = 'group';
