@@ -41,11 +41,11 @@ jobs:
         name: Set up Docker Buildx
         
     # 빌드한 결과 값을 서버에 푸시 함.
-      - uses: docker/build-push-action@v2
+      - uses: docker/build-push-action@v4
         name: Build and push
         with:
           context: .
-          allow: ${{ secrets.HARBOR_REGISTRY }}
+          allow: security.insecure
           file: ./Dockerfile
           platforms: linux/amd64
           push: true
