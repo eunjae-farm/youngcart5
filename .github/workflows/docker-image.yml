@@ -78,7 +78,7 @@ jobs:
       - name: Update image version
         uses: fjogeleit/yaml-update-action@main
         with:
-          repository: aswcloud/argo-cd
+          repository: eunjae-farm/argocd
           token: ${{ secrets.BOT_TOKEN }}
           valueFile: 'shop/php.yaml'
           propertyPath: 'spec.template.spec.containers[0].image'
