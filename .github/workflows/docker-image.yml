@@ -1,5 +1,6 @@
 name: Docker Image CI
 
+
 on:
   push:
     tags:
@@ -9,11 +10,15 @@ jobs:
   docker-deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Set insecure registry
+        run: |
+          echo "{ \"insecure-registries\": [\"${{ secrets.HARBOR_REGISTRY }}\"] }" | sudo tee /etc/docker/daemon.json
+          sudo service docker restart
     # 도커 로그인.
-      - uses: docker/login-action@v2
+      - uses: docker/login-action@v3
         name: Login to DockerHub
         with:
-          registry: harbor.udon.party
+          registry: ${{ secrets.HARBOR_REGISTRY }}
           username: ${{ secrets.HARBOR_USERNAME }}
           password: ${{ secrets.HARBOR_PASSWORD }}
       
@@ -26,7 +31,7 @@ jobs:
         name: Docker meta
         id: docker_meta
         with:
-          images: harbor.udon.party/eunjae-shop/youngcart5
+          images: ${{ secrets.HARBOR_IMAGES }}
           tag-semver: |
             {{version}}
             {{major}}.{{minor}}
