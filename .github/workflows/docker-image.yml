@@ -104,5 +104,5 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.BOT_TOKEN }}
-          repository: aswcloud/argo-cd
+          repository: eunjae-farm/argocd
           branch: main
