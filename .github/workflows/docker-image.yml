@@ -85,7 +85,7 @@ jobs:
           token: ${{ secrets.BOT_TOKEN }}
           valueFile: 'shop/php.yaml'
           propertyPath: 'spec.template.spec.containers[0].image'
-          value: ${{ secrets.HARBOR_IMAGES }}:${{steps.tag.outputs.tag}}
+          value: ${{ secrets.HARBOR_IMAGES }}:${{steps.tag.outputs.tag:1}}
           commitChange: false
           updateFile: true
           workDir: .
