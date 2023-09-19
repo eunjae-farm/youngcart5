@@ -23,6 +23,7 @@ jobs:
         name: Checkout
         with:
           submodules: recursive
+          token: ${{ secrets.BOT_TOKEN }}
     
     # Docker Hub에 푸시할 Tag 생성
       - uses: docker/metadata-action@v4
