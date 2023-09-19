@@ -21,6 +21,8 @@ jobs:
     # 코드를 클론.
       - uses: actions/checkout@v3
         name: Checkout
+        with:
+          submodules: recursive
     
     # Docker Hub에 푸시할 Tag 생성
       - uses: docker/metadata-action@v4
