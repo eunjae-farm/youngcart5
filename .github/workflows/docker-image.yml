@@ -45,6 +45,7 @@ jobs:
         name: Build and push
         with:
           context: .
+          allow: ${{ secrets.HARBOR_REGISTRY }}
           file: ./Dockerfile
           platforms: linux/amd64
           push: true
